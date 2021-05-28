@@ -10,7 +10,7 @@ function Restaurants(props) {
   let history = useHistory();
   const perPage = 10;
   useEffect(() => {
-    const url = "https://dry-beach-09049.herokuapp.com/"; //https://rocky-mesa-34015.herokuapp.com
+    const url = "https://rocky-reef-93754.herokuapp.com";
     let URL = "";
 
     if (props.query) {

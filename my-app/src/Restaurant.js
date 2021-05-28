@@ -21,7 +21,7 @@ function Restaurant(props) {
 
   useEffect(() => {
     setLoading(true);
-    const url = "https://dry-beach-09049.herokuapp.com"; //try SWR...?
+    const url = "https://rocky-reef-93754.herokuapp.com"; //later: try SWR
     let URL = "";
 
     URL = `${url}/api/restaurants/${props.id}`;
