@@ -21,9 +21,6 @@ function About() {
               Favorite Languages: JavaScript, Java, SQL
               <br />
               <br />
-              Current Goals: Earn all A grades / Get a Coop job!
-              <br />
-              <br />
               LinkedIn Link:
               <Card.Link href="https://www.linkedin.com/in/mizuho-okimoto" target="_blank">
                 {" " + "www.linkedin.com/in/mizuho-okimoto"}
