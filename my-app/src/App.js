@@ -1,6 +1,6 @@
 import { Button, Col, Container, Form, FormControl, Nav, Navbar, Row } from "react-bootstrap";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { LinkContainer } from "react-router-bootstrap";
+import { LinkContainer, Card, Image } from "react-router-bootstrap";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -8,6 +8,7 @@ import Restaurants from "./Restaurants";
 import Restaurant from "./Restaurant";
 import About from "./About";
 import Notfound from "./NotFound";
+import BackgroundPic from "./Background";
 //import Search from "./Search"; //表示させるには </Search /> タグを入れる
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
         <Row>
           <Col>
             <Switch>
+              {/* <Route exact path="/" render={() => <Redirect to="BackgroundPic" />} /> */}
               <Route exact path="/" render={() => <Redirect to="/Restaurants" />} />
               <Route
                 exact
