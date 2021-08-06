@@ -3,6 +3,7 @@ import queryString, { parseUrl } from "query-string";
 import { Card, Table, Pagination, Spinner, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { render } from "react-dom";
+import BackgroundPic from "./Background";
 
 function Restaurants(props) {
   const [restaurants, setRestaurants] = useState(null);
@@ -41,7 +42,13 @@ function Restaurants(props) {
     // if (!restaurants.length) {
     return (
       <div>
+        <BackgroundPic />
         <Card>
+          {/* <Card.Img
+            variant="top"
+            src="top_img.jpg"
+            style={{ width: "auto", height: "500px", margin: "20px" }}
+          /> */}
           <Card.Header>
             <h2>Restaurant List</h2>
           </Card.Header>
