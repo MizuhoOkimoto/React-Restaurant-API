@@ -1,5 +1,3 @@
-// (Note: please feel free to change this up to something more fun).
-
 function NotFound() {
   return (
     <div class="container">
