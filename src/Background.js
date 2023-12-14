@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import "./Restaurants";
 import { Card } from "react-bootstrap";
 
@@ -12,13 +11,6 @@ const BackgroundPic = () => {
       src="top_img.jpg"
       style={{ width: "100%", height: "auto", marginBottom: "20px" }}
     />
-
-    // <div className="backgroundPic" style={{ backgroundImage: `url(${imageUrl})` }}>
-    //   <div className="background-content">
-    //     <h1>Pineapples</h1>
-    //     <p>They are good</p>
-    //   </div>
-    // </div>
   );
 };
 

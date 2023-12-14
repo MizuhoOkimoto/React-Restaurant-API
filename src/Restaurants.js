@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import queryString, { parseUrl } from "query-string";
-import { Card, Table, Pagination, Spinner, Alert } from "react-bootstrap";
+import queryString from "query-string";
+import { Card, Table, Pagination, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import { render } from "react-dom";
 import BackgroundPic from "./Background";
 
 function Restaurants(props) {
   const [restaurants, setRestaurants] = useState(null);
   const [page, setPage] = useState(1);
+
   let history = useHistory();
   const perPage = 10;
   useEffect(() => {
@@ -26,8 +26,7 @@ function Restaurants(props) {
         setPage(page);
       })
       .catch((err) => {
-        console.log(err); //following week4 part4 console.err?
-        //return null;
+        console.log(err);
       });
   }, [props.query, page]);
 
@@ -39,99 +38,80 @@ function Restaurants(props) {
   }
 
   if (restaurants) {
-    // if (!restaurants.length) {
     return (
       <div>
         <BackgroundPic />
         <Card>
-          {/* <Card.Img
-            variant="top"
-            src="top_img.jpg"
-            style={{ width: "auto", height: "500px", margin: "20px" }}
-          /> */}
           <Card.Header>
             <h2>Restaurant List</h2>
           </Card.Header>
-
-          <Card.Body>
-            {/* {!restaurants.length ? (
-              <tr>
-                <td colSpan="4">
-                  <Alert variant="danger">
-                    <Alert.Heading>Sorry, the restaurant not found</Alert.Heading>
-                    <p>
-                      <a href="/" style={{ float: "right" }}>
-                        Back to the Restaurants list
-                      </a>
-                    </p>
-                  </Alert>
-                </td>
-              </tr>
-            ) : null} */}
-
-            <p>Full list of restaurants. Optionally sorted by borough</p>
-            <br />
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Borough</th>
-                  <th>Cuisine</th>
-                </tr>
-              </thead>
-              <tbody>
-                {!restaurants.length ? (
-                  <tr>
-                    <td colSpan="4">
-                      <Alert>
-                        <Alert.Heading className="text-center">
-                          Sorry, no results found
-                        </Alert.Heading>
-                        <p>
-                          <a href="/" style={{ float: "right" }}>
-                            Back to the Restaurants list
-                          </a>
-                        </p>
-                      </Alert>
-                    </td>
-                  </tr>
-                ) : null}
-                {restaurants.map((data) => (
-                  <tr
-                    key={data._id}
-                    onClick={() => {
-                      history.push(`/restaurant/${data._id}`);
+          {restaurants.length === 0 ? (
+            <Card.Body>
+              <Alert className="text-center" style={{ fontSize: "38px" }}>
+                Sorry, No Results Found
+                <p>
+                  <a
+                    href="/"
+                    style={{
+                      float: "right",
+                      fontSize: "20px",
+                      marginTop: "38px",
                     }}
                   >
-                    <td>{data.name}</td>
-                    <td>
-                      {data.address.building} {data.address.street}
-                    </td>
-                    <td>{data.borough}</td>
-                    <td>{data.cuisine}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-
-            <Pagination>
-              <Pagination.Prev onClick={previousPage} />
-              <Pagination.Item>{page}</Pagination.Item>
-              <Pagination.Next onClick={nextPage} />
-            </Pagination>
-          </Card.Body>
+                    Back to the Restaurants list
+                  </a>
+                </p>
+              </Alert>
+            </Card.Body>
+          ) : (
+            <>
+              <Card.Body>
+                <p>Full list of restaurants. Optionally sorted by borough</p>
+                <br />
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Address</th>
+                      <th>Borough</th>
+                      <th>Cuisine</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {restaurants.map((data) => (
+                      <tr
+                        key={data._id}
+                        onClick={() => {
+                          history.push(`/restaurant/${data._id}`);
+                        }}
+                      >
+                        <td>{data.name}</td>
+                        <td>
+                          {data.address.building} {data.address.street}
+                        </td>
+                        <td>{data.borough}</td>
+                        <td>{data.cuisine}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+                <Pagination>
+                  <Pagination.Prev onClick={previousPage} />
+                  <Pagination.Item>{page}</Pagination.Item>
+                  <Pagination.Next onClick={nextPage} />
+                </Pagination>
+              </Card.Body>
+            </>
+          )}
         </Card>
       </div>
     );
-    // }
   } else
     return (
       <div className="text-center">
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
-        {/* <p>Loading</p> */}
       </div>
     );
 }

@@ -5,24 +5,29 @@ let gitLink = "www.linkedin.com/in/mizuho-okimoto";
 function About() {
   return (
     <Container className="mt-5">
-      <CardGroup style={{ width: "780px" }}>
+      <CardGroup style={{ width: "1000px" }}>
         {/* squoosh.app */}
         <Card.Img
           variant="top"
           src="profile.jpg"
-          style={{ width: "260px", height: "auto" }}
+          style={{ width: "350px", height: "auto" }}
         />
         <Card>
           <Card.Header>
-            <h2>All about me - Developer </h2>
+            <h2>All about me</h2>
           </Card.Header>
           <Card.Body>
             <Card.Title>Mizuho Okimoto</Card.Title>
             <Card.Text>
-              Student (Computer Programming & Analysis)
+              Front-end Developer | Quality Assurance
               <br />
               <br />
-              Favorite Languages: JavaScript, Java, SQL
+              <h5>- About me - </h5>
+              Driven and adaptable IT professional, skilled in analytical
+              problem-solving and collaborative teamwork. I'm eager to apply my
+              diverse experience in technology and customer service to
+              contribute innovative solutions and drive success in a dynamic
+              organizational environment.
               <br />
               <br />
               LinkedIn Link:
@@ -44,12 +49,12 @@ function About() {
               <br />
             </Card.Text>
           </Card.Body>
-          <Button
+          {/* <Button
             variant="outline-primary"
             style={{ width: "350px", margin: "20px" }}
           >
             Send me an email
-          </Button>
+          </Button> */}
         </Card>
       </CardGroup>
     </Container>
